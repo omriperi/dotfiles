@@ -19,22 +19,42 @@ set nocompatible
 " contents. Use this to allow intelligent auto-indenting for each filetype,
 " and for plugins that are filetype specific.
 
+" Installions of plugins going through vim 
+let s:editor_root=expand("~/.vim")
 
 " From here - handling vunel
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=/usr/local/opt/fzf
+
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Bundle 'nathanalderson/yang.vim'
+Plugin 'junegunn/fzf.vim'
 call vundle#end()    
 
+" Emabling usage of plugins
 filetype indent plugin on
  
 " Enable syntax highlighting
 syntax on
- 
-let s:editor_root=expand("~/.vim")
+
+""""" NETRW
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+"augroup ProjectDrawer
+"  autocmd!
+"  autocmd VimEnter * :Vexplore
+"augroup END
+
+
+
+
+
  
 "------------------------------------------------------------
 " Must have options {{{1
