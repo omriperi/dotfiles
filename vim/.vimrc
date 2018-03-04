@@ -18,11 +18,22 @@ set nocompatible
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
 " and for plugins that are filetype specific.
+
+
+" From here - handling vunel
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+call vundle#end()    
+
 filetype indent plugin on
  
 " Enable syntax highlighting
 syntax on
  
+let s:editor_root=expand("~/.vim")
  
 "------------------------------------------------------------
 " Must have options {{{1

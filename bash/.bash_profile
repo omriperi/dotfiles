@@ -8,8 +8,11 @@ export PATH
 export WORKON_HOME=~/Envs
 source /Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh
 
+# VIM Additions
 alias vim="nvim"
 
+# FZF Additions
+export FZF_DEFAULT_OPTS='--height 40% --border'
 # Omri's pythopath
 PYTHONPATH=""; export PYTHONPATH
 # Path to the bash it configuration
