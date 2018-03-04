@@ -7,6 +7,12 @@ export PATH
 # virtualenv
 export WORKON_HOME=~/Envs
 source /Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh
+# DEFAULT EDITOR
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
+# Extra imports
+for f in ~/.bash_rc_expand/*; do source $f; done
 
 # VIM Additions
 alias vim="nvim"

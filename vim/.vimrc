@@ -26,6 +26,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
+Bundle 'nathanalderson/yang.vim'
 call vundle#end()    
 
 filetype indent plugin on
