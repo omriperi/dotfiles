@@ -32,7 +32,14 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Bundle 'nathanalderson/yang.vim'
 Plugin 'junegunn/fzf.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'taglist.vim'
+Plugin 'dracula/vim'
+Plugin 'jlanzarotta/bufexplorer'
 call vundle#end()    
+
+syntax on
+color dracula
 
 " Emabling usage of plugins
 filetype indent plugin on
@@ -52,9 +59,11 @@ let g:netrw_winsize = 25
 "augroup END
 
 
+"Prevent opening a file from fzf inside nerdtree buffer
+nnoremap <silent> <expr> <Leader><Leader> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":FZF\<cr>"
 
-
-
+" Setting relative number for vim
+set relativenumber
  
 "------------------------------------------------------------
 " Must have options {{{1
@@ -168,7 +177,11 @@ set pastetoggle=<F11>
 set shiftwidth=4
 set softtabstop=4
 set expandtab
- 
+
+" Setting the current folder to be 
+set autochdir
+
+
 " Indentation settings for using hard tabs for indent. Display tabs as
 " four characters wide.
 "set shiftwidth=4
@@ -187,3 +200,6 @@ map Y y$
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
+
+" Going to nerdtree by using Leader N
+nmap <C-N> :NERDTree<CR>
