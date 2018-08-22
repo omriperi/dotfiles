@@ -36,7 +36,18 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'taglist.vim'
 Plugin 'dracula/vim'
 Plugin 'jlanzarotta/bufexplorer'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'terryma/vim-smooth-scroll'
 call vundle#end()    
+
+
+
+" VIM Airline stuff
+
+let g:airline_theme='dracula'
+let g:airline#extensions#tabline#enabled = 1
+
 
 syntax on
 color dracula
@@ -178,16 +189,7 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
-" Setting the current folder to be 
-set autochdir
 
-
-" Indentation settings for using hard tabs for indent. Display tabs as
-" four characters wide.
-"set shiftwidth=4
-"set tabstop=4
- 
- 
 "------------------------------------------------------------
 " Mappings {{{1
 "
@@ -196,10 +198,25 @@ set autochdir
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
 " which is the default
 map Y y$
+
+" Smooth scrolling
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 10, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>
  
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
-" Going to nerdtree by using Leader N
-nmap <C-N> :NERDTree<CR>
+" General shortcuts
+nmap <C-W> :bd<CR>
+
+nmap <C-N> :BufExplorer<CR>
+nmap ,n :NERDTreeFind<CR>
+nmap ,f :FZF<CR>
+
+" Tabs shortcuts
+"
+nnoremap <C-S-Tab> :bprevious<CR>
+nnoremap <C-G>   :bnext<CR>
+
+
