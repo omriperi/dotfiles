@@ -25,8 +25,11 @@ let s:editor_root=expand("~/.vim")
 " From here - handling vunel
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
-set rtp+=/usr/local/opt/fzf
-
+if has('mac')
+    set rtp+=/usr/local/opt/fzf
+else 
+    set rtp+=~/.fzf
+endif
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
