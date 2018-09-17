@@ -32,9 +32,9 @@ else
 endif
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'junegunn/fzf.vim'
 Plugin 'scrooloose/nerdtree'
 Bundle 'nathanalderson/yang.vim'
-Plugin 'junegunn/fzf.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'taglist.vim'
 Plugin 'dracula/vim'
@@ -42,6 +42,9 @@ Plugin 'jlanzarotta/bufexplorer'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'terryma/vim-smooth-scroll'
+Plugin 'skywind3000/asyncrun.vim'
+Plugin 'valloric/youcompleteme'
+Plugin 'roxma/python-support.nvim'
 call vundle#end()    
 
 
@@ -210,16 +213,21 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
-" General shortcuts
-nmap <C-W> :bd<CR>
+
+
+function! FZFOpen(command_str)
+  if (expand('%') =~# 'NERD_tree' && winnr('$') > 1)
+    exe "normal! \<c-w>\<c-w>"
+  endif
+  exe 'normal! ' . a:command_str . "\<cr>"
+endfunction
 
 nmap <C-N> :BufExplorer<CR>
 nmap ,n :NERDTreeFind<CR>
-nmap ,f :FZF<CR>
+nmap ,f :call FZFOpen(':FZF')<CR>
 
 " Tabs shortcuts
 "
 nnoremap <C-S-Tab> :bprevious<CR>
 nnoremap <C-G>   :bnext<CR>
-
 
