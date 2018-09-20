@@ -45,6 +45,7 @@ Plugin 'terryma/vim-smooth-scroll'
 Plugin 'skywind3000/asyncrun.vim'
 Plugin 'valloric/youcompleteme'
 Plugin 'roxma/python-support.nvim'
+Plugin 'tpope/vim-fugitive'
 call vundle#end()    
 
 
