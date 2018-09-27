@@ -35,7 +35,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'junegunn/fzf.vim'
 Plugin 'scrooloose/nerdtree'
 Bundle 'nathanalderson/yang.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'taglist.vim'
 Plugin 'dracula/vim'
 Plugin 'jlanzarotta/bufexplorer'
@@ -43,10 +42,36 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'terryma/vim-smooth-scroll'
 Plugin 'skywind3000/asyncrun.vim'
-Plugin 'valloric/youcompleteme'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'roxma/python-support.nvim'
 Plugin 'tpope/vim-fugitive'
+" NCMS
+Plugin 'ncm2/ncm2'
+Plugin 'roxma/nvim-yarp'
+Plugin 'ncm2/ncm2-jedi'
+Plugin 'ncm2/ncm2-bufword'
+Plugin 'ncm2/ncm2-path'
 call vundle#end()    
+
+" ncm2 settings
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=menuone,noselect,noinsert
+set shortmess+=c
+inoremap <c-c> <ESC>
+" make it fast
+let ncm2#popup_delay = 5
+let ncm2#complete_length = [[1, 1]]
+" Use new fuzzy based matches
+let g:ncm2#matcher = 'substrfuzzy'
+
+" Disable Jedi-vim autocompletion and enable call-signatures options
+let g:jedi#auto_initialization = 1
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#smart_auto_mappings = 0
+let g:jedi#popup_on_dot = 0
+let g:jedi#completions_command = ""
+let g:jedi#show_call_signatures = "1"
 
 
 
