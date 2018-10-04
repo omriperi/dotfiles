@@ -35,7 +35,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'junegunn/fzf.vim'
 Plugin 'scrooloose/nerdtree'
 Bundle 'nathanalderson/yang.vim'
-Plugin 'taglist.vim'
 Plugin 'dracula/vim'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'vim-airline/vim-airline'
@@ -45,6 +44,8 @@ Plugin 'skywind3000/asyncrun.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'roxma/python-support.nvim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'majutsushi/tagbar'
+Plugin 'dyng/ctrlsf.vim'
 " NCMS
 Plugin 'ncm2/ncm2'
 Plugin 'roxma/nvim-yarp'
@@ -257,3 +258,13 @@ nmap ,f :call FZFOpen(':FZF')<CR>
 nnoremap <C-S-Tab> :bprevious<CR>
 nnoremap <C-G>   :bnext<CR>
 
+" Tag Bar
+let g:tagbar_left = 1
+let g:tagbar_show_linenumbers = 2
+nmap ,t :TagbarToggle<CR>
+
+" General Navigation
+nmap ,c :bd<CR>
+
+" Make update time of vim faster
+set updatetime=500
