@@ -46,6 +46,7 @@ Plugin 'roxma/python-support.nvim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'majutsushi/tagbar'
 Plugin 'dyng/ctrlsf.vim'
+Plugin 'christoomey/vim-tmux-navigator'
 " NCMS
 Plugin 'ncm2/ncm2'
 Plugin 'roxma/nvim-yarp'
@@ -235,11 +236,6 @@ map Y y$
 " Smooth scrolling
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 10, 4)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>
- 
-" Map <C-L> (redraw screen) to also turn off search highlighting until the
-" next search
-nnoremap <C-L> :nohl<CR><C-L>
-
 
 
 function! FZFOpen(command_str)
@@ -253,10 +249,14 @@ nmap <C-N> :BufExplorer<CR>
 nmap ,n :NERDTreeFind<CR>
 nmap ,f :call FZFOpen(':FZF')<CR>
 
+
 " Tabs shortcuts
-"
 nnoremap <C-S-Tab> :bprevious<CR>
 nnoremap <C-G>   :bnext<CR>
+nnoremap ,g   :bnext<CR>
+nnoremap ,<S>g   :bnext<CR>
+" Movement words
+nmap ,w viwy<CR>
 
 " Tag Bar
 let g:tagbar_left = 1
@@ -266,5 +266,11 @@ nmap ,t :TagbarToggle<CR>
 " General Navigation
 nmap ,c :bd<CR>
 
+"FZF
+
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'botright vsp' }
 " Make update time of vim faster
 set updatetime=500
