@@ -265,7 +265,7 @@ nmap ,t :TagbarToggle<CR>
 
 " General Navigation
 nmap ,c :bd<CR>
-
+nmap ,f <Plug>CtrlSFPrompt
 "FZF
 
 let g:fzf_action = {
