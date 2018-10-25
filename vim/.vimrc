@@ -1,25 +1,8 @@
-" URL: http://vim.wikia.com/wiki/Example_vimrc
-" Authors: http://vim.wikia.com/wiki/Vim_on_Freenode
-" Description: A minimal, but feature rich, example .vimrc. If you are a
-"              newbie, basing your first .vimrc on this file is a good choice.
-"              If you're a more advanced user, building your own .vimrc based
-"              on this file is still a good idea.
- 
-"------------------------------------------------------------
-" Features {{{1
-"
-" These options and commands enable some very useful features in Vim, that
-" no user should have to live without.
- 
-" Set 'nocompatible' to ward off unexpected things that your distro might
-" have made, as well as sanely reset options when re-sourcing .vimrc
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/local/bin/python3'
+
 set nocompatible
  
-" Attempt to determine the type of a file based on its name and possibly its
-" contents. Use this to allow intelligent auto-indenting for each filetype,
-" and for plugins that are filetype specific.
-
-" Installions of plugins going through vim 
 let s:editor_root=expand("~/.vim")
 
 " From here - handling vunel
@@ -41,8 +24,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'terryma/vim-smooth-scroll'
 Plugin 'skywind3000/asyncrun.vim'
-" Plugin 'davidhalter/jedi-vim'
-Plugin 'roxma/python-support.nvim'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'majutsushi/tagbar'
 Plugin 'dyng/ctrlsf.vim'
@@ -50,7 +32,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 " NCMS
 Plugin 'ncm2/ncm2'
 Plugin 'roxma/nvim-yarp'
-" Plugin 'ncm2/ncm2-jedi'
+Plugin 'ncm2/ncm2-jedi'
 Plugin 'ncm2/ncm2-bufword'
 Plugin 'ncm2/ncm2-path'
 call vundle#end()    
@@ -74,7 +56,6 @@ let g:jedi#smart_auto_mappings = 0
 let g:jedi#popup_on_dot = 0
 let g:jedi#completions_command = ""
 let g:jedi#show_call_signatures = "1"
-let g:jedi#force_py_version = 3.6
 
 
 " VIM Airline stuff
