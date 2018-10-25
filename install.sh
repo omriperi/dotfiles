@@ -24,5 +24,8 @@ fi
 # VUNDLE
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
+# AG 
+sudo apt install silversearcher-ag
+
 # EXUBERANT CTAGS
 sudo apt install exuberant-ctags

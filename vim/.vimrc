@@ -41,7 +41,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'terryma/vim-smooth-scroll'
 Plugin 'skywind3000/asyncrun.vim'
-Plugin 'davidhalter/jedi-vim'
+" Plugin 'davidhalter/jedi-vim'
 Plugin 'roxma/python-support.nvim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'majutsushi/tagbar'
@@ -50,7 +50,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 " NCMS
 Plugin 'ncm2/ncm2'
 Plugin 'roxma/nvim-yarp'
-Plugin 'ncm2/ncm2-jedi'
+" Plugin 'ncm2/ncm2-jedi'
 Plugin 'ncm2/ncm2-bufword'
 Plugin 'ncm2/ncm2-path'
 call vundle#end()    
@@ -74,7 +74,7 @@ let g:jedi#smart_auto_mappings = 0
 let g:jedi#popup_on_dot = 0
 let g:jedi#completions_command = ""
 let g:jedi#show_call_signatures = "1"
-
+let g:jedi#force_py_version = 3.6
 
 
 " VIM Airline stuff
@@ -263,9 +263,30 @@ let g:tagbar_left = 1
 let g:tagbar_show_linenumbers = 2
 nmap ,t :TagbarToggle<CR>
 
+" Quick Fix
+map <C-9> :cn<CR>
+map <C-0> :cp<CR>
+
+
 " General Navigation
 nmap ,c :bd<CR>
-nmap ,f <Plug>CtrlSFPrompt
+
+"CtrlSF
+nmap ,s <Plug>CtrlSFPrompt
+let g:ctrlsf_debug_mode = 1
+" When using `dd` in the quickfix list, remove the item from the quickfix list.
+function! RemoveQFItem()
+  let curqfidx = line('.') - 1
+  let qfall = getqflist()
+  call remove(qfall, curqfidx)
+  call setqflist(qfall, 'r')
+  execute curqfidx + 1 . "cfirst"
+  :copen
+endfunction
+:command! RemoveQFItem :call RemoveQFItem()
+" Use map <buffer> to only map dd in the quickfix window. Requires +localmap
+autocmd FileType qf map <buffer> dd :RemoveQFItem<cr>
+
 "FZF
 
 let g:fzf_action = {
