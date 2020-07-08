@@ -1,3 +1,7 @@
+# Cheatsheets:
+# https://gist.github.com/tuannvm/c0dcf6bd052d5607fff040c235103928
+# https://devhints.io/makefile
+
 # Hints:
 # @ - Don't print command, but commands are the same
 # $ - Magics of a Makefile, or invoking something
@@ -7,7 +11,9 @@
 
 .PHONY: outer_variables local_variables
 simple_string = '10' # Regular assignment
-simple_temp := 30
+simple_temp := 30 # Immediate assignment
+simple_safe ?= 30 # safe assignment
+simple_apend += '30' # Appending
 TEMP_VAR=3
 
 global_variables: 
