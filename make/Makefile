@@ -9,12 +9,21 @@
 # $info()/@echo - Pretty much the same, info is a Make call 
 # while echo is a shell call
 
-.PHONY: outer_variables local_variables
+.PHONY: outer_variables local_variables invoking_cmds env_variables
 simple_string = '10' # Regular assignment
 simple_temp := 30 # Immediate assignment
 simple_safe ?= 30 # safe assignment
 simple_apend += '30' # Appending
 TEMP_VAR=3
+
+# Will work since it's not in a target
+export PYTHONPATH=/my/pyhon/dir
+
+env_variables:
+	export MY_VAR=3 # Won't work since in a target
+	
+	# Different solution:
+	PYTHONPATH=/my/path; python3.6 bla.py # Will include the pythonpath
 
 global_variables: 
 	# This not prints "echo" inside the print
