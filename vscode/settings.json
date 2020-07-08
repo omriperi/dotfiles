@@ -1,4 +1,5 @@
 {
     "python.linting.pylamaEnabled": true,
-    "python.linting.pylamaArgs": ["-o", "/home/dn/cheetah/pylama.ini"]
+    "python.linting.pylamaArgs": ["-o", "/home/dn/cheetah/pylama.ini"],
+    "python.jediEnabled": false
 }
