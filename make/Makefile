@@ -22,8 +22,8 @@ export PYTHONPATH=/my/pyhon/dir
 env_variables:
 	export MY_VAR=3 # Won't work since in a target
 	
-	# Different solution:
-	PYTHONPATH=/my/path; python3.6 bla.py # Will include the pythonpath
+	# Different solution, not that if we'll put ; between the commands it will not work well
+	PYTHONPATH=/my/path python3.6 bla.py # Will include the pythonpath
 
 global_variables: 
 	# This not prints "echo" inside the print
