@@ -1,6 +1,14 @@
 # ask for password upfront
 sudo -v
 
+
+# Installing cargo for the-way installation
+apt install cargo -y
+
+# The Way Installation
+# https://github.com/out-of-cheese-error/the-way
+cargo install the-way
+
 #
 # NVIM
 #
